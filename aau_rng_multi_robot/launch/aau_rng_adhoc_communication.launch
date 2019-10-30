@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+   
+   <node pkg="aau_rng_multi_robot" type="aau_rng_communication.py" name="aau_rng_communication">
+     <param name="x_docker_pose" value="-0.94" />
+     <param name="y_docker_pose" value="-4.20" />
+     <param name="robot_name" value="sam" />
+     <param name="interface" value="wlp2s0" />	
+     <param name="hello_period" value="4" />
+     <param name="neighbor_timeout" value="8" /> 
+   </node>
+
+  <node pkg="aau_rng_multi_robot" type="poi_coverage.py" name="poi_coverage">
+    <param name="comm_range" type="double" value="20"/>
+    <param name="epsilon_error" type="double" value="0.5"/>
+    <param name="x_first_pose" type="double" value="-4.50"/>
+    <param name="y_first_pose" type="double" value="-3.80"/>
+    <param name="x_goal_pose" type="double" value="-14.25"/>
+    <param name="y_goal_pose" type="double" value="3.85"/>
+  </node>
+
+</launch>

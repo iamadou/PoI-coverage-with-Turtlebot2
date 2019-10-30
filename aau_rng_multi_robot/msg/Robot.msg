@@ -1,0 +1,2 @@
+string robotID
+aau_rng_multi_robot/PointM robotPosition

@@ -53,17 +53,15 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
    FILES
    RecvString.msg
-   Point.msg
+   PointM.msg
+   Robot.msg
 )
 
 ## Generate services in the 'srv' folder
 add_service_files(
    FILES
-   GetNeighbors.srv
-   BroadcastString.srv
-   SendString.srv
    ShutDown.srv
-   SendTwist.srv
+   MaxDistance.srv
 )
 
 ## Generate actions in the 'action' folder
