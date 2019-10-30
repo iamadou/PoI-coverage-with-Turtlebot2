@@ -4,7 +4,7 @@ Auto-Organisation avec couverture de point d'intérêt
 Package AAU_RNG_MULTI_ROBOT
 ---------------------------
 <div align="justify">
-Le package  `aau_rng_multi_robot` est un package ROS qui est constitué de deux n&oelig;uds (i.e., nodes ROS). Brièvement, le premier node apporte la communication réseau et l'auto-organisation des robots à travers l'algorithme de construction d'un RNG Local (i.e., **Local Relative Neighborhood Graph - LRNG**). Il est identifiable par le nom `aau_rng_communication` dans la liste des nodes ROS (voir avec la commande `rosnode list`). Le second node décrit l'implémentation de l'algorithme de couverture de Point d'Intérêt (i.e. **PoI**), aussi appelé `poi_coverage`. Le package est installable dans un `catkin workspace : catkin_ws/src`.
+Le package  `aau_rng_multi_robot` est un package ROS qui est constitué de deux n&oelig;uds (i.e., nodes ROS). Brièvement, le premier node apporte la communication réseau et l'auto-organisation des robots à travers l'algorithme de construction d'un RNG Local (i.e., <strong>Local Relative Neighborhood Graph - LRNG</strong>). Il est identifiable par le nom `aau_rng_communication` dans la liste des nodes ROS (voir avec la commande `rosnode list`). Le second node décrit l'implémentation de l'algorithme de couverture de Point d'Intérêt (i.e. **PoI**), aussi appelé `poi_coverage`. Le package est installable dans un `catkin workspace : catkin_ws/src`.
 </div>
 
 ### Préalable###
