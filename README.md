@@ -9,7 +9,7 @@ Le package  <code>aau_rng_multi_robot</code> est un package ROS qui est constitu
 
 ### Préalable
 <div align="justify">
-Ce package est destiné à être exploité sur des robots <strong>Turtlebot2</strong>. Pour naviguer dans l'environement, étant donné qu'on utilise le module <code>turtlebot_navaigation</code>, le second node ou <strong>PoI</strong> a besoin une map qui doit-être installée dans un répertoire <code>catkin_ws/src/maps/<code>. Donc, si ce répertoire n'existe pas, vous devriez le créer et copier les fichiers de votre map (e.g., <code>map_name.yaml</code> et <code>map_name.pgm</code>) à l'intérieur de ce répertoire. Vous devez également déclarer une variable d'environement  dans le fichier <code>bashrc</code> de votre environement de travail (i.e., <code>/home</code>) comme suit :
+Ce package est destiné à être exploité sur des robots <strong>Turtlebot2</strong>. Pour naviguer dans l'environement, étant donné qu'on utilise le module <code>turtlebot_navaigation</code>, le second node ou <strong>PoI</strong> a besoin une map qui doit-être installée dans un répertoire <code>catkin_ws/src/maps/</code>. Donc, si ce répertoire n'existe pas, vous devriez le créer et copier les fichiers de votre map (e.g., <code>map_name.yaml</code> et <code>map_name.pgm</code>) à l'intérieur de ce répertoire. Vous devez également déclarer une variable d'environement  dans le fichier <code>bashrc</code> de votre environement de travail (i.e., <code>/home</code>) comme suit :
 </div>
 
 ```bash
@@ -68,7 +68,7 @@ Vous devez modifier les deux lignes suivantes :
 <arg name="initial_pose_y" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
 ```
 <div align="justify">
-en y ajoutant la position initiale du robot lorsqu'il est en charge au niveau du docker de charge. <strong>==Note bien que, cette position initiale peut-être aussi sa position initiale de départ sans docker de charge</strong>==. Par exemple dans notre cas, nous avons un robot qui est initialement positionné à <code>(-0.94, -4.20)</code> dans notre map, donc son fichier `amcl_demo.launch` aura la sortie suivante :
+en y ajoutant la position initiale du robot lorsqu'il est en charge au niveau du docker de charge. <strong>Note bien que, cette position initiale peut-être aussi sa position initiale de départ sans docker de charge</strong>. Par exemple dans notre cas, nous avons un robot qui est initialement positionné à <code>(-0.94, -4.20)</code> dans notre map, donc son fichier <code>amcl_demo.launch</code> aura la sortie suivante :
 </div>
 
 ```bash
@@ -272,7 +272,7 @@ Le second fichier de lancement permet de démarrer nos deux nodes et son contenu
 ```
 
 <div align="justify">
-Les paramètres décrits entre le bloc <code><node...></node></code> sont des entrées des modules. Par exemple le node <code>aau_rng_communication</code> a besoin de connaître l'interface réseau (e.g., <code>wlp2s0</code>) sur lequel il crée les sockets de communication, la fréquence d'envoie des messages <em>HELLO</em>, la position initiale (x, y) du robot, etc. Tandis que le node de couverture du point d'intérêt a besoin de connaître la porte radio de communication, la position (x, y) du point à couvrir, etc. <strong>==++Dans tout autre cas d'usage, l'utilisation de ces paramètres (i.e., <code>hello_period</code>, <code>neighbor_timeout</code> et <code>comm_range</code>) tels qu'ils sont présentés ci-dessus doit faire l'objet une étude préalable, en expérimentation, avant toute exploitation en production++==</strong>.
+Les paramètres décrits entre le bloc <code><node...></node></code> sont des entrées des modules. Par exemple le node <code>aau_rng_communication</code> a besoin de connaître l'interface réseau (e.g., <code>wlp2s0</code>) sur lequel il crée les sockets de communication, la fréquence d'envoie des messages <em>HELLO</em>, la position initiale (x, y) du robot, etc. Tandis que le node de couverture du point d'intérêt a besoin de connaître la porte radio de communication, la position (x, y) du point à couvrir, etc. <strong>Dans tout autre cas d'usage, l'utilisation de ces paramètres (i.e., <code>hello_period</code>, <code>neighbor_timeout</code> et <code>comm_range</code>) tels qu'ils sont présentés ci-dessus doit faire l'objet une étude préalable, en expérimentation, avant toute exploitation en production</strong>.
 </div>
 
 Il se lance via la commande suivante :
@@ -328,7 +328,9 @@ Le répertoire des scripts contient l'ensemble des modules, au sens script pytho
 <center>
    <img src="./Images/graphe.png" alt="Diagramme fonctionnel" title="Diagramme fonctionnel des deux nodes ROS" width="780" height="750"/>
 </center>
+
 <center>Diagramme fonctionnel des deux nodes du package AAU_RNG_MULTI_ROBOT</center>
+
 
 <div align="justify">
 Le diagramme fonctionnel des modules (i.e., nodes) est décrit par la figure ci-dessus. Cette figure montre des dépendances functionnelles qui existent entre les diffèrents modules, d'un point de vue script python, constituant la solution d'auto-organisation et de couverture de point d'intérêt. Les deux nodes sont présentés par les deux blocs orange clair. Elle montre que le module <code>aau_rng_communication</code> dépend du module de communication réseau à travers les sockets de communication, et le module de gestion de l'interface réseau représenté ici les blocs violets <code>broadcast_api</code> et <code>get_netifaces_addresses</code> respectivement, du module <code>robot_data</code> qui gère les informations sur le robot tels que le nom du robot, l'identifiant robot, la position instantané du robot dans l'environement (i.e., <em>map</em>), la liste de ces voisins directs, la liste de ces voisins RNG, et l'algorithme de construction du graphe RNG local, du module <code>data_structures</code> qui offre un certains nombre de classes et de variables afin de représenter les informations du robot, et la structure des paquets échangés sur le réseau via les messages de contôle <em>HELLO</em> et du module <code>utils</code>. Ce dernier est une librairie partagée qui regroupe un ensemble de fonctionnalités communes aux deux nodes ROS. Par exemple, il offre des fonctionnalités de sérialisation, et de désérialisation des messages envoyés sur le réseau, de calcul de distance, de verrouillage et de déverrouillage d'objets partagés, etc.  Le node <code>aau_rng_communication</code> offre des services au second node <code>poi_coverage</code> qui réalise la navigation vers la couverture du point d'intérêt via le module <code>map_navigation</code> et quelques fonctionnalités de la librairie partagée. Il est par conséquent fortement dépendant de la disponibilité du service <code>MaxDistance.srv</code> du node <code>aau_rng_communication</code>. Il ne sera démarré d'après le démarrage du node <code>aau_rng_communication</code> donc implicitement la disponibilité du service <code>MaxDistance.srv</code>.
