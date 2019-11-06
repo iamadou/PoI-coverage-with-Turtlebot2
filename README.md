@@ -175,7 +175,7 @@ Il contient les fichiers de services qui sont (ou seront) exploités dans le pac
 ![equation](https://latex.codecogs.com/gif.latex?%5Cmathbf%7Bd%5Cleq%28R-d%5E%2B%28u%29%29%7D)
 
 <div align="justify">
-Cette distance maximale des robots LRNG remplacera $$$d^+(u)$$$ dans la formulation précédente. Cette formule permet de calculer la distance à parcourir à chaque étape du processus de couverture du point d'intérêt.
+Cette distance maximale des robots LRNG remplacera *E*~0~=*mc*^2^ $$$d^+(u)$$$ dans la formulation précédente. Cette formule permet de calculer la distance à parcourir à chaque étape du processus de couverture du point d'intérêt.
 
 A l'image des messages, les services doivent être déclarés dans la section <code>## Generate services in the 'srv' folder</code> du fichier <code>CMakeLists.txt</code> comme suit :
 </div>
