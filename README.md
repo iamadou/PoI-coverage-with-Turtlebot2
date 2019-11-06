@@ -9,8 +9,10 @@ Le package  <code>aau_rng_multi_robot</code> est un package ROS qui est constitu
 
 <p align="center">
    <img src="./Images/NodeDigramme.png" alt="Diagramme des nodes" title="Diagramme des nodes ROS et leur intéraction" width="480" height="450"/>
-Diagramme des nodes ROS et leur intéraction au sein du package AAU_RNG_MULTI_ROBOT
 </p>
+<div align="center">
+Diagramme des nodes ROS et leur intéraction au sein du package AAU_RNG_MULTI_ROBOT
+</div>
 
  
 
