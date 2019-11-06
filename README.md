@@ -177,9 +177,9 @@ Il contient les fichiers de services qui sont (ou seront) exploités dans le pac
 <div align="center">
   d &le;  (R - d<sup>+</sup>(u))
 </div>
-
+<div align="center">
 ![equation](https://latex.codecogs.com/gif.latex?%5Cmathbf%7Bd%5Cleq%28R-d%5E%2B%28u%29%29%7D)
-
+</div>
 <div align="justify">
  Cette distance maximale des robots LRNG remplacera d<sup>+</sup>(u) dans la formulation précédente. Cette formule permet de calculer la distance à parcourir à chaque étape du processus de couverture du point d'intérêt.
 
