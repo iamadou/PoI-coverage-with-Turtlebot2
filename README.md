@@ -174,7 +174,7 @@ add_message_files(
 <div align="justify">
 Il contient les fichiers de services qui sont (ou seront) exploités dans le package <code>aau_rng_multi_robot</code>. Pour le moment, deux services ont été déclarés. Un premier service, <code>ShutDown.srv</code>, à appeler pour arrêter le n&oelig;ud. Ce service peut être implémenté dans n'importe quel node du package et peut être appelé par un node client pour arrêter le second node qui implémente la partie serveur. Le second service, <code>MaxDistance.srv</code>, est appelé par un client implémenté dans le module de couverture des points-d-intérêt (i.e., <strong>PoI</strong>). Le serveur est implémenté au niveau du node <code>aau_rng_communication</code>. Ce service fournit la distance maximale qu'a le robot avec ses robots voisins RNG Locaux. Cette distance est exploitée par l'algorithme <strong>PoI</strong> à travers la formule suivante :</div>
 
-d =le;  (R - d<sup>+</sup>(u))
+d &le;  (R - d<sup>+</sup>(u))
 
 ![equation](https://latex.codecogs.com/gif.latex?%5Cmathbf%7Bd%5Cleq%28R-d%5E%2B%28u%29%29%7D)
 
