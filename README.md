@@ -176,7 +176,7 @@ $$
 d \le (R - d^+(u))
 $$
 
-![equation](http://latex.codecogs.com/gif.latex?Concentration%3D%5Cfrac%7BTotalTemplate%7D%7BTotalVolume%7D)
+![\sum_{\forall i}{x_i^{2}}](https://latex.codecogs.com/svg.latex?%5Csum_%7B%5Cforall+i%7D%7Bx_i%5E%7B2%7D%7D
 
 <div align="justify">
 Cette distance maximale des robots LRNG remplacera $$$d^+(u)$$$ dans la formulation précédente. Cette formule permet de calculer la distance à parcourir à chaque étape du processus de couverture du point d'intérêt.
