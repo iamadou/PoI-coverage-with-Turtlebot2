@@ -333,11 +333,11 @@ process[poi_coverage-2]: started with pid [31822]
 Le répertoire des scripts contient l'ensemble des modules, au sens script python, qui constituent l'implémentation des nodes <code>aau_rng_communication.py</code> et <code>poi_coverage.py</code>. Leur diagramme fonctionnel est présenté  sur la figure ci-dessous :
 </div>
 
-<center>
+<p align="center">
    <img src="./Images/graphe.png" alt="Diagramme fonctionnel" title="Diagramme fonctionnel des deux nodes ROS" width="780" height="750"/>
-</center>
+</p>
 
-<center>Diagramme fonctionnel des deux nodes du package AAU_RNG_MULTI_ROBOT</center>
+<div align="center">Diagramme fonctionnel des deux nodes du package AAU_RNG_MULTI_ROBOT</div>
 
 
 <div align="justify">
