@@ -25,7 +25,7 @@ $ roscd turtlebot_navigation/launch/
 $ sudo vim/gedit/nano amcl_demo.launch  # Utilisez votre éditeur favoris: vim ou gedit ou nano
 ```
 
-Vous aurez une sortie pareil :
+Vous aurez une sortie comme suit :
 ```bash
 <launch>
   <!-- 3D sensor -->
@@ -68,7 +68,7 @@ Vous devez modifier les deux lignes suivantes :
 <arg name="initial_pose_y" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
 ```
 <div align="justify">
-en y ajoutant la position initiale du robot lorsqu'il est en charge au niveau du docker de charge. <strong>Note bien que, cette position initiale peut-être aussi sa position initiale de départ sans docker de charge</strong>. Par exemple dans notre cas, nous avons un robot qui est initialement positionné à <code>(-0.94, -4.20)</code> dans notre map, donc son fichier <code>amcl_demo.launch</code> aura la sortie suivante :
+en y ajoutant la position initiale du robot lorsqu'il est en charge au niveau du docker de charge. <strong>Notez bien que, cette position initiale peut être aussi sa position initiale de départ sans docker de charge</strong>. Par exemple dans notre cas, nous avons un robot qui est initialement positionné à <code>(-0.94, -4.20)</code> dans notre map, donc son fichier <code>amcl_demo.launch</code> aura la sortie suivante :
 </div>
 
 ```bash
