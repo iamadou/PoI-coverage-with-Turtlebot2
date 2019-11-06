@@ -7,7 +7,7 @@ Package AAU_RNG_MULTI_ROBOT
 Le package  <code>aau_rng_multi_robot</code> est un package ROS qui est constitué de deux n&oelig;uds (i.e., nodes ROS). Brièvement, le premier node apporte la communication réseau et l'auto-organisation des robots à travers l'algorithme de construction d'un RNG Local (i.e., <strong>Local Relative Neighborhood Graph - LRNG</strong>). Il est identifiable par le nom <code>aau_rng_communication</code> dans la liste des nodes ROS (voir avec la commande <code>rosnode list</code>). Le second node décrit l'implémentation de l'algorithme de couverture de Point d'Intérêt (i.e. <strong>PoI</strong>), aussi appelé <code>poi_coverage</code>. Le package est installable dans un <code>catkin workspace : catkin_ws/src</code>.
 </div>
 
- h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
+ 
 
 ### Préalable
 <div align="justify">
@@ -174,10 +174,12 @@ add_message_files(
 <div align="justify">
 Il contient les fichiers de services qui sont (ou seront) exploités dans le package <code>aau_rng_multi_robot</code>. Pour le moment, deux services ont été déclarés. Un premier service, <code>ShutDown.srv</code>, à appeler pour arrêter le n&oelig;ud. Ce service peut être implémenté dans n'importe quel node du package et peut être appelé par un node client pour arrêter le second node qui implémente la partie serveur. Le second service, <code>MaxDistance.srv</code>, est appelé par un client implémenté dans le module de couverture des points-d-intérêt (i.e., <strong>PoI</strong>). Le serveur est implémenté au niveau du node <code>aau_rng_communication</code>. Ce service fournit la distance maximale qu'a le robot avec ses robots voisins RNG Locaux. Cette distance est exploitée par l'algorithme <strong>PoI</strong> à travers la formule suivante :</div>
 
+
+
 ![equation](https://latex.codecogs.com/gif.latex?%5Cmathbf%7Bd%5Cleq%28R-d%5E%2B%28u%29%29%7D)
 
 <div align="justify">
-Cette distance maximale des robots LRNG remplacera $d^+(u)$ dans la formulation précédente. Cette formule permet de calculer la distance à parcourir à chaque étape du processus de couverture du point d'intérêt.
+ Cette distance maximale des robots LRNG remplacera d<sup>+</sup>(u) dans la formulation précédente. Cette formule permet de calculer la distance à parcourir à chaque étape du processus de couverture du point d'intérêt.
 
 A l'image des messages, les services doivent être déclarés dans la section <code>## Generate services in the 'srv' folder</code> du fichier <code>CMakeLists.txt</code> comme suit :
 </div>
