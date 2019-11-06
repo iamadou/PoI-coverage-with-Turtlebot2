@@ -17,7 +17,7 @@ export TURTLEBOT_MAP_FILE=~/catkin_ws/src/maps/map_name.yaml
 
 ```
 <div align="justify">
-Ceci est une variable globale du module de navigation des robots <strong>Turtlebot2</strong> qui définit le chemin de la map à utiliser lors une navigation avec map (i.e., navigation assistée). Vous devez également modifier le fichier <code>amcl_demo.launch</code> pour y rajouter la position initiale  <code>x</code> et <code>y</code> qui répresente la position de son docker de charge. Vous devez naviguer jusqu'au module de navigation et modifier le à travers cette serie de commande shell.
+Ceci est une variable globale du module de navigation des robots <strong>Turtlebot2</strong> qui définit le chemin de la map à utiliser lors d'une navigation avec map (i.e., navigation assistée). Vous devez également modifier le fichier <code>amcl_demo.launch</code> pour y rajouter la position initiale  <code>x</code> et <code>y</code> qui répresente la position de son docker de charge. Vous devez naviguer jusqu'au module de navigation et modifier le à travers cette serie de commande shell.
 </div>
 
 ```bash
