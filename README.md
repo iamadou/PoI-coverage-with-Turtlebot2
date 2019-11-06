@@ -154,7 +154,7 @@ Les fichiers <code>CMakeLists.txt</code> et <code>package.xml</code> sont inhér
 ---------------------
 
 <div align="justify">
-Ce répertoire contient les messages crées (ou qui seront crées) et exploités (ou qui seront exploités) dans les modules du package. Actuellement, il y a trois messages déclarés, mais aucun n'est utilisé, mais pourront faire l'objet une utilisation future. Ils doivent-être déclarés, également, dans la section <code>## Generate message in the msg folder</code> du fichier <code>CMakeLists.txt</code> comme suit :
+Ce répertoire contient les messages crées (ou qui seront crées) et exploités (ou qui seront exploités) dans les modules du package. Actuellement, il y a trois messages déclarés, mais aucun n'est utilisé, mais pourront faire l'objet d'une utilisation future. Ils doivent-être déclarés, également, dans la section <code>## Generate message in the msg folder</code> du fichier <code>CMakeLists.txt</code> comme suit :
 </div>
 
 ```
@@ -170,7 +170,7 @@ add_message_files(
 ##### Répertoire SRV
 ---------------------
 <div align="justify">
-Il contient les fichiers de services qui sont (ou seront) exploités dans le package <code>aau_rng_multi_robot</code>. Pour le moment, deux services ont été déclarés. Un premier service, <code>ShutDown.srv</code>, à appeler pour arrêter le n&oelig;ud. Ce service peut être implémenté dans n'importe quelle node du package et peut être appelé par un node client pour arrêter le second node qui implémenté la partie serveur. Le second service, <code>MaxDistance.srv</code>, est appelé par un client implémenté dans le module de couverture des point-d-intérêts (i.e., <strong>PoI</strong>). Le serveur est implémenté au niveau du node <code>aau_rng_communication</code>. Ce service fournit la distance maximale qu'a le robot avec ces robots voisins RNG Locaux. Cette distance est exploitée par l'algorithme <strong>PoI</strong> à traverse la formule suivante :
+Il contient les fichiers de services qui sont (ou seront) exploités dans le package <code>aau_rng_multi_robot</code>. Pour le moment, deux services ont été déclarés. Un premier service, <code>ShutDown.srv</code>, à appeler pour arrêter le n&oelig;ud. Ce service peut être implémenté dans n'importe quel node du package et peut être appelé par un node client pour arrêter le second node qui implémente la partie serveur. Le second service, <code>MaxDistance.srv</code>, est appelé par un client implémenté dans le module de couverture des points-d-intérêt (i.e., <strong>PoI</strong>). Le serveur est implémenté au niveau du node <code>aau_rng_communication</code>. Ce service fournit la distance maximale qu'a le robot avec ses robots voisins RNG Locaux. Cette distance est exploitée par l'algorithme <strong>PoI</strong> à travers la formule suivante :
 </div>
 
 $$
@@ -201,7 +201,7 @@ Le répertoire <em>launch</em> contient deux fichiers de lancement :
 Ils doivent-être lancés dans l'ordre indiqué ci-dessus.
 
 <div align="justify">
-Le premier fichier, <code>turtlebot_setup.launch</code>, lance à son tour le fichier <code>bringup</code> qui démarre la base du <strong>Turtlebot2</strong>. Un fois que la base est démarrée, il lance ensuite le module de navigation assistée du robot. Ceci permet ensuite d'appeler des fonctionnalités de la navigation dans nos modules pour réaliser la couverture du point d'intérêt ou pour avoir la position du robot à tout instant dans la map de navigation. Son contenu est décrit ci-dessous :
+Le premier fichier, <code>turtlebot_setup.launch</code>, lance à son tour le fichier <code>bringup</code> qui démarre la base du <strong>Turtlebot2</strong>. Une fois que la base est démarrée, il lance ensuite le module de navigation assistée du robot. Ceci permet ensuite d'appeler des fonctionnalités de la navigation dans nos modules pour réaliser la couverture du point d'intérêt ou pour avoir la position du robot à tout instant dans la map de navigation. Son contenu est décrit ci-dessous :
 </div>
 
 ```bash
@@ -219,7 +219,7 @@ Pour le lancer, il suffit de taper la commande suivante :
 $ roslaunch aau_rng_multi_robot turtlebot_setup.launch
 
 ```
-Lorsqu'il est lancé, au bout quelques seondes, vous aurez une sortie similaire à ce qui est décrit ci-dessous :
+Lorsqu'il est lancé, au bout de quelques secondes, vous aurez une sortie similaire à ce qui est décrit ci-dessous :
 
 ```bash
 [ INFO] [1572362731.039956109]: Using plugin "static_layer"
@@ -272,7 +272,7 @@ Le second fichier de lancement permet de démarrer nos deux nodes et son contenu
 ```
 
 <div align="justify">
-Les paramètres décrits entre le bloc <code><node...></node></code> sont des entrées des modules. Par exemple le node <code>aau_rng_communication</code> a besoin de connaître l'interface réseau (e.g., <code>wlp2s0</code>) sur lequel il crée les sockets de communication, la fréquence d'envoie des messages <em>HELLO</em>, la position initiale (x, y) du robot, etc. Tandis que le node de couverture du point d'intérêt a besoin de connaître la porte radio de communication, la position (x, y) du point à couvrir, etc. <strong>Dans tout autre cas d'usage, l'utilisation de ces paramètres (i.e., <code>hello_period</code>, <code>neighbor_timeout</code> et <code>comm_range</code>) tels qu'ils sont présentés ci-dessus doit faire l'objet une étude préalable, en expérimentation, avant toute exploitation en production</strong>.
+Les paramètres décrits entre le bloc <code><node...> ... </node></code> sont des entrées des modules. Par exemple le node <code>aau_rng_communication</code> a besoin de connaître l'interface réseau (e.g., <code>wlp2s0</code>) sur laquelle il crée les sockets de communication, la fréquence d'envoi des messages <em>HELLO</em>, la position initiale (x, y) du robot, etc. Tandis que le node de couverture du point d'intérêt a besoin de connaître la porte radio de communication, la position (x, y) du point à couvrir, etc. <strong>Dans tout autre cas d'usage, l'utilisation de ces paramètres (i.e., <code>hello_period</code>, <code>neighbor_timeout</code> et <code>comm_range</code>) tels qu'ils sont présentés ci-dessus doit faire l'objet d'une étude préalable, en expérimentation, avant toute exploitation en production</strong>.
 </div>
 
 Il se lance via la commande suivante :
@@ -322,7 +322,7 @@ process[poi_coverage-2]: started with pid [31822]
 ##### Répertoire Script
 ------------------------
 <div align="justify">
-Le répertoire des scripts contient l'ensemble des modules, au sens script python, qui constituent l'implémentation des nodes <code>aau_rng_communication.py</code> et <code>poi_coverage.py</code>. Leur diagramme fonctionnel est présenté  la figure ci-dessous :
+Le répertoire des scripts contient l'ensemble des modules, au sens script python, qui constituent l'implémentation des nodes <code>aau_rng_communication.py</code> et <code>poi_coverage.py</code>. Leur diagramme fonctionnel est présenté  sur la figure ci-dessous :
 </div>
 
 <center>
@@ -333,5 +333,5 @@ Le répertoire des scripts contient l'ensemble des modules, au sens script pytho
 
 
 <div align="justify">
-Le diagramme fonctionnel des modules (i.e., nodes) est décrit par la figure ci-dessus. Cette figure montre des dépendances functionnelles qui existent entre les diffèrents modules, d'un point de vue script python, constituant la solution d'auto-organisation et de couverture de point d'intérêt. Les deux nodes sont présentés par les deux blocs orange clair. Elle montre que le module <code>aau_rng_communication</code> dépend du module de communication réseau à travers les sockets de communication, et le module de gestion de l'interface réseau représenté ici les blocs violets <code>broadcast_api</code> et <code>get_netifaces_addresses</code> respectivement, du module <code>robot_data</code> qui gère les informations sur le robot tels que le nom du robot, l'identifiant robot, la position instantané du robot dans l'environnement (i.e., <em>map</em>), la liste de ces voisins directs, la liste de ces voisins RNG, et l'algorithme de construction du graphe RNG local, du module <code>data_structures</code> qui offre un certains nombre de classes et de variables afin de représenter les informations du robot, et la structure des paquets échangés sur le réseau via les messages de contôle <em>HELLO</em> et du module <code>utils</code>. Ce dernier est une librairie partagée qui regroupe un ensemble de fonctionnalités communes aux deux nodes ROS. Par exemple, il offre des fonctionnalités de sérialisation, et de désérialisation des messages envoyés sur le réseau, de calcul de distance, de verrouillage et de déverrouillage d'objets partagés, etc.  Le node <code>aau_rng_communication</code> offre des services au second node <code>poi_coverage</code> qui réalise la navigation vers la couverture du point d'intérêt via le module <code>map_navigation</code> et quelques fonctionnalités de la librairie partagée. Il est par conséquent fortement dépendant de la disponibilité du service <code>MaxDistance.srv</code> du node <code>aau_rng_communication</code>. Il ne sera démarré d'après le démarrage du node <code>aau_rng_communication</code> donc implicitement la disponibilité du service <code>MaxDistance.srv</code>.
+Le diagramme fonctionnel des modules (i.e., nodes) est décrit par la figure ci-dessus. Cette figure montre des dépendances fonctionnelles qui existent entre les différents modules, d'un point de vue script python, constituant la solution d'auto-organisation et de couverture de point d'intérêt. Les deux nodes sont présentés par les deux blocs orange clair. Elle montre que le module <code>aau_rng_communication</code> dépend du module de communication réseau à travers les sockets de communication, et le module de gestion de l'interface réseau représenté ici par les blocs violets <code>broadcast_api</code> et <code>get_netifaces_addresses</code> respectivement, du module <code>robot_data</code> qui gère les informations sur le robot telles que le nom du robot, l'identifiant robot, la position instantanée du robot dans l'environnement (i.e., <em>map</em>), la liste de ses voisins directs, la liste de ces voisins RNG, et l'algorithme de construction du graphe RNG local, du module <code>data_structures</code> qui offre un certain nombre de classes et de variables afin de représenter les informations du robot, et la structure des paquets échangés sur le réseau via les messages de contôle <em>HELLO</em> et du module <code>utils</code>. Ce dernier est une librairie partagée qui regroupe un ensemble de fonctionnalités communes aux deux nodes ROS. Par exemple, il offre des fonctionnalités de sérialisation, et de désérialisation des messages envoyés sur le réseau, de calcul de distance, de verrouillage et de déverrouillage d'objets partagés, etc.  Le node <code>aau_rng_communication</code> offre des services au second node <code>poi_coverage</code> qui réalise la navigation vers la couverture du point d'intérêt via le module <code>map_navigation</code> et quelques fonctionnalités de la librairie partagée. Il est par conséquent fortement dépendant de la disponibilité du service <code>MaxDistance.srv</code> du node <code>aau_rng_communication</code>. Il ne sera démarré qu'après le démarrage du node <code>aau_rng_communication</code> donc implicitement la disponibilité du service <code>MaxDistance.srv</code>.
 </div>
