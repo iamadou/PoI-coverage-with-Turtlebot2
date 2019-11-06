@@ -7,9 +7,6 @@ Package AAU_RNG_MULTI_ROBOT
 Le package  <code>aau_rng_multi_robot</code> est un package ROS qui est constitué de deux n&oelig;uds (i.e., nodes ROS). Brièvement, le premier node apporte la communication réseau et l'auto-organisation des robots à travers l'algorithme de construction d'un RNG Local (i.e., <strong>Local Relative Neighborhood Graph - LRNG</strong>). Il est identifiable par le nom <code>aau_rng_communication</code> dans la liste des nodes ROS (voir avec la commande <code>rosnode list</code>). Le second node décrit l'implémentation de l'algorithme de couverture de Point d'Intérêt (i.e. <strong>PoI</strong>), aussi appelé <code>poi_coverage</code>. Le package est installable dans un <code>catkin workspace : catkin_ws/src</code>.
 </div>
 
-Then typed the following mathjax statement
-$$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2b}.$$
-It worked for me
 
 ### Préalable
 <div align="justify">
